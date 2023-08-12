@@ -32,7 +32,7 @@
                 <&kp LALT>,
                 <&macro_tap>,
                 <&kp TAB>,
-                <&macro_wait_time 350>,
+                <&macro_wait_time 1000>,
                 <&macro_release>,
                 <&kp LALT>;
         };
