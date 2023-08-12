@@ -28,13 +28,10 @@
             label = "ALT_TAB";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp TAB>,
+                <&macro_press &kp LALT>,
+                <&macro_tap &kp TAB>,
                 <&macro_wait_time 1000>,
-                <&macro_release>,
-                <&kp LALT>;
+                <&macro_release &kp LALT>;
         };
     };
 
