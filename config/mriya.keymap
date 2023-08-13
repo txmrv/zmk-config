@@ -23,24 +23,13 @@
 
 / {
     macros {
-        hold_alt_tap_tab: hold_alt_tap_tab {
-            label = "ZM_hold_alt_tap_tab";
+        alt_tab: alt_tab {
+            label = "ZM_ALT_TAB";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press &kp LALT>,
                 <&macro_tap &kp TAB>;
-        };
-    };
-
-    behaviors {
-        alt_tab: alt_tab {
-            compatible = "zmk,behavior-mod-morph";
-            label = "ALT_TAB";
-            #binding-cells = <0>;
-            bindings = <&hold_alt_tap_tab>, <&kp TAB>;
-            mods = <(MOD_LALT)>;
-            keep_mods = <(MOD_LALT)>;
         };
     };
 
