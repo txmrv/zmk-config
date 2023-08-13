@@ -27,22 +27,22 @@
             compatible = "zmk,behavior-macro";
             label = "ALT_TAB";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_wait_time 500>
-                , <&macro_tap &kp TAB>
-                , <&macro_release &kp LALT>;
+            bindings =
+                <&macro_press &kp LALT>,
+                <&macro_wait_time 500>,
+                <&macro_tap &kp TAB>,
+                <&macro_release &kp LALT>;
         };
         alt_tab2: alt_tab2 {
             label = "ZM_ALT_TAB2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_wait_time 500>
-                , <&macro_tap &kp TAB>
-                , <&macro_release &kp LALT>;
-        }
+            bindings =
+                <&macro_press &kp LALT>,
+                <&macro_wait_time 500>,
+                <&macro_tap &kp TAB>,
+                <&macro_release &kp LALT>;
+        };
     };
 
     keymap {
