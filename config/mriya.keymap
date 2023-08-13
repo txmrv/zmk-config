@@ -22,23 +22,14 @@
 };
 
 / {
-    macros {
-        zed_em_kay: zed_em_kay {
-            label = "ZM_zed_em_kay";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&kt LATL>,
-                <&kp TAB>;
-        };
-    };
+
 
     behaviors {
         alt_tab: alt_tab {
             compatible = "zmk,behavior-mod-morph";
             label = "alt_tab";
             #binding-cells = <0>;
-            bindings = <&zed_em_kay>, <&kp TAB>;
+            bindings = <&kt LALT> <&kp TAB>, <&kp TAB>;
             mods = <(MOD_LALT)>;
         };
 
