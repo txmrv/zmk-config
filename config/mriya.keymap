@@ -22,26 +22,14 @@
 };
 
 / {
-    macros {
+    behaviors {
         alt_tab: alt_tab {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-mod-morph";
             label = "ALT_TAB";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LALT>,
-                <&macro_wait_time 500>,
-                <&macro_tap &kp TAB>,
-                <&macro_release &kp LALT>;
-        };
-        alt_tab2: alt_tab2 {
-            label = "ZM_ALT_TAB2";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LALT>,
-                <&macro_wait_time 500>,
-                <&macro_tap &kp TAB>,
-                <&macro_release &kp LALT>;
+            bindings = <&kt LALT &kp TAB>, <&kp TAB>;
+            mods = <(MOD_LALT)>;
+            keep_mods = <(MOD_LALT)>;
         };
     };
 
@@ -68,7 +56,7 @@
 
         raise_layer {
             bindings = <
-&trans   &none     &none  &alt_tab      &alt_tab2       &none     &none      &kp ESC   &kp HOME     &kp UP    &kp END    &none          &none  &kp RGUI
+&trans   &none     &none  &alt_tab       &none       &none     &none      &kp ESC   &kp HOME     &kp UP    &kp END    &none          &none  &kp RGUI
         &trans  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHIFT  &sk RALT     &kp BSPC   &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  &mt RCTRL TAB
         &trans     &none     &none      &none       &none     &none    &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN    &none       &kp LALT
                             &trans      &mo 3      &trans    &trans       &trans     &trans      &mo 3     &trans
