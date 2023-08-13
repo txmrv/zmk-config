@@ -23,23 +23,20 @@
 
 / {
     behaviors {
-        alt_toggle_alt: alt_toggle_alt {
+        alt_tab: alt_tab {
             compatible = "zmk,behavior-mod-morph";
-            label = "alt_toggle_alt";
+            label = "alt_tab";
+            #binding-cells = <0>;
+            bindings = <&kt LA(TAB)>, <&kp TAB>;
+            mods = <(MOD_LALT)>;
+        };
+
+        toggle_alt: toggle_alt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "toggle_alt";
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kt LALT>;
             mods = <(MOD_LALT)>;
-        };
-    };
-
-    macros {
-        alt_tab: alt_tab {
-            label = "ZM_ALT_TAB";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LALT>,
-                <&macro_tap &kp TAB>;
         };
     };
 
@@ -67,7 +64,7 @@
         raise_layer {
             bindings = <
 &trans   &none     &none  &alt_tab       &none       &none     &none      &kp ESC   &kp HOME     &kp UP    &kp END    &none          &none  &kp RGUI
-        &trans  &kp LWIN  &alt_toggle_alt  &kp LCTRL  &kp LSHIFT  &sk RALT     &kp BSPC   &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  &mt RCTRL TAB
+        &trans  &kp LWIN  &toggle_alt  &kp LCTRL  &kp LSHIFT  &sk RALT     &kp BSPC   &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  &mt RCTRL TAB
         &trans     &none     &none      &none       &none     &none    &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN    &none       &kp LALT
                             &trans      &mo 3      &trans    &trans       &trans     &trans      &mo 3     &trans
             >;
