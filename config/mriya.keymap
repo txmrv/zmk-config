@@ -23,6 +23,16 @@
 
 / {
     behaviors {
+        gqt: global-quick-tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "GLOBAL_QUICK_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            global-quick-tap;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -30,10 +40,10 @@
 
         default_layer {
             bindings = <
-&kp LWIN  &kp GRAVE     &kp Q      &kp W    &mt F4 E           &kp R           &kp T             &kp Y           &kp U                 &kp I           &kp O                   &kp P       &kp LBKT  &mt RWIN RBKT
-          &kp LCTRL  &mt N1 A   &mt N2 S    &mt N3 D  &mt NUMBER_4 F  &mt NUMBER_5 G    &mt NUMBER_6 H  &mt NUMBER_7 J        &mt NUMBER_8 K  &mt NUMBER_9 L  &mt NUMBER_0 SEMICOLON  &mt RCTRL SQT
+&kp LWIN  &kp GRAVE     &kp Q      &kp W    &gqt F4 E           &kp R           &kp T             &kp Y           &kp U                 &kp I           &kp O                   &kp P       &kp LBKT  &mt RWIN RBKT
+          &kp LCTRL  &gqt N1 A   &gqt N2 S    &gqt N3 D  &gqt NUMBER_4 F  &gqt NUMBER_5 G    &gqt NUMBER_6 H  &gqt NUMBER_7 J        &gqt NUMBER_8 K  &gqt NUMBER_9 L  &gqt NUMBER_0 SEMICOLON  &mt RCTRL SQT
            &kp LALT     &kp Z      &kp X       &kp C           &kp V           &kp B             &kp N           &kp M             &kp COMMA         &kp DOT                &kp FSLH  &mt RALT BSLH
-                               &lt 4 TAB  &kp LSHIFT     &lt 2 SPACE       &lt 0 ESC       &lt 0 ENTER     &lt 2 SPACE  &mt RSHIFT BACKSPACE    &lt 4 DELETE
+                               &lt 4 TAB  &kp LSHIFT     &lt 2 SPACE       &lt 1 ESC       &lt 1 ENTER     &lt 2 SPACE  &mt RSHIFT BACKSPACE    &lt 4 DELETE
             >;
         };
 
