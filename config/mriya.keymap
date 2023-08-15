@@ -9,9 +9,10 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define DEF 0
-#define LWR 1
-#define RSE 2
-#define ADJ 3
+#define NUM 1
+#define NPD 2
+#define FN  3
+#define SYS 4
 
 &lt {
     quick_tap_ms = <200>;
@@ -22,6 +23,15 @@
 };
 
 / {
+    {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2 3>;
+            then-layer = <4>;
+        };
+    };
+
     behaviors {
         gqt: global-quick-tap {
             compatible = "zmk,behavior-hold-tap";
@@ -40,48 +50,48 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default {
             bindings = <
-&lt 4 TAB   &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E       &gqt F5 R       &gqt F6 T               &gqt F7 Y       &gqt F8 U       &gqt F9 I           &gqt F10 O          &gqt F11 P          &gqt F12 LBKT   &lt 4 RBKT
-            &kp LSHFT       &gqt LGUI A &gqt LALT S &gqt LCTRL D    &gqt LSHFT F    &gqt PLUS G             &gqt MINUS H    &gqt RSHFT J    &gqt RCTRL K        &gqt LALT L         &gqt RGUI SEMI      &mt RSHIFT SQT
-            &kp LGUI        &gqt N1 Z   &gqt N2 X   &gqt N3 C       &gqt NUMBER_4 V &gqt NUMBER_5 B         &gqt NUMBER_6 N &gqt NUMBER_7 M &gqt NUMBER_8 COMMA &gqt NUMBER_9 DOT   &gqt NUMBER_0 FSLH  &mt RGUI BSLH
-                                        &kp LALT    &kp LCTRL       &lt 2 SPACE     &lt 1 ESC               &lt 1 ENTER     &lt 2 SPACE     &mt RCTRL BSPC      &mt LALT DEL
+&kp LGUI    &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E       &gqt F5 R           &gqt F6 T               &gqt F7 Y           &gqt F8 U       &gqt F9 I               &gqt F10 O          &gqt F11 P          &gqt F12 LBKT   &mt RGUI RBKT
+            &kp LCTRL       &gqt LGUI A &gqt LALT S &gqt LCTRL D    &gqt LSHFT F        &gqt EQUAL G            &gqt MINUS H        &gqt RSHFT J    &gqt RCTRL K            &gqt LALT L         &gqt RGUI SEMI      &mt RCTRL SQT
+            &kp LALT        &gqt N1 Z   &gqt N2 X   &gqt N3 C       &gqt NUMBER_4 V     &gqt NUMBER_5 B         &gqt NUMBER_6 N     &gqt NUMBER_7 M &gqt NUMBER_8 COMMA     &gqt NUMBER_9 DOT   &gqt NUMBER_0 FSLH  &mt LALT BSLH
+                                        &kp LSHFT   &lt NPD TAB     &lt FN SPACE        &lt NUM ESC             &lt NUM ENTER       &lt FN SPACE    &lt NPD BSPC            &mt RSHFT DEL
             >;
         };
 
-        lower_layer {
+        function {
             bindings = <
-&none       &kp F1      &kp F2          &kp F3          &kp F4          &kp F5          &kp F6              &kp F7          &kp F8          &kp F9          &kp F10         &kp F11         &kp F12     &none
-            &trans      &kp LGUI        &kp LALT        &kp LCTRL       &kp LSHFT       &kp PLUS            &kp MINUS       &kp RSHFT       &kp RCTRL       &kp LALT        &kp RGUI        &kp RSHIFT
-            &trans      &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5        &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp RGUI
+&none   &none   &none       &none       &none       &none       &none           &kp ESC     &kp HOME    &kp UP      &kp END     &none       &none       &none
+        &none   &kp LWIN    &kp LALT    &kp LCTRL   &kp LSHFT   &sk RALT        &kp BSPC    &kp LEFT    &kp DOWN    &kp RIGHT   &kp DEL     &kp TAB
+        &none   &none       &none       &none       &none       &none           &kp ENTER   &kp SPACE   &kp PG_UP   &kp PG_DN   &kp K_APP   &none
+                            &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans
+            >;
+        };
+
+        numbers {
+            bindings = <
+&trans      &kp F1      &kp F2          &kp F3          &kp F4          &kp F5          &kp F6              &kp F7          &kp F8          &kp F9          &kp F10         &kp F11         &kp F12     &kp RGUI
+            &trans      &kp LGUI        &kp LALT        &kp LCTRL       &kp LSHFT       &kp EQUAL           &kp MINUS       &kp RSHFT       &kp RCTRL       &kp LALT        &kp RGUI        &kp RCTRL
+            &trans      &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5        &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp LALT
                                         &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans
-            >;
-        };
-
-        raise_layer {
-            bindings = <
-&mo ADJ   &none     &none     &none      &none       &none     &none      &kp ESC   &kp HOME     &kp UP    &kp END              &none          &none  &mo ADJ
-        &trans  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHIFT  &sk RALT     &kp BSPC   &kp LEFT   &kp DOWN  &kp RIGHT            &kp DEL  &mt RSHFT TAB
-        &trans     &none     &none      &none       &none     &none    &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APPLICATION       &kp RGUI
-                            &trans      &trans      &trans    &trans       &trans     &trans      &trans     &trans
-            >;
-        };
-
-        adjust_layer {
-            bindings = <
-&none  &bootloader         &none         &none         &none         &none         &none           &none         &none         &none         &none         &none  &bootloader  &none
-        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0   &bt BT_CLR
-        &sys_reset         &none         &none         &none         &none         &none           &none         &none         &none         &none         &none   &sys_reset
-                                         &none        &trans         &none        &trans          &trans         &none        &trans         &none
             >;
         };
 
         numpad {
             bindings = <
-&trans   &none  &none   &none   &none   &none   &none    &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9    &kp KP_DIVIDE          &kp KP_NUM  &kp ESC
-        &trans  &none   &none   &none   &none   &none        &kp KP_PLUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY  &kp KP_ENTER
-        &trans  &none   &none   &none   &none   &none    &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3       &kp KP_DOT              &trans
-                       &trans  &trans  &trans  &trans             &trans           &trans           &trans           &trans
+&trans  &none   &none   &none   &none   &none   &none           &kp KP_DIVIDE       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9   &kp KP_MINUS        &kp KP_NUM      &kp ESC
+        &trans  &none   &none   &none   &none   &none           &kp KP_MULTIPLY     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6   &kp KP_PLUS         &kp KP_ENTER
+        &trans  &none   &none   &none   &none   &none           &kp KP_DOT          &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3   &kp KP_NUMBER_0     &none
+                        &trans  &trans  &trans  &trans          &trans              &trans           &trans           &trans
+            >;
+        };
+
+        system {
+            bindings = <
+&none   &bootloader     &none           &none           &none           &none           &none                       &none           &none           &none           &none           &none           &bootloader     &none
+        &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                &bt BT_SEL 4    &bt BT_SEL 3    &bt BT_SEL 2    &bt BT_SEL 1    &bt BT_SEL 0    &bt BT_CLR
+        &sys_reset      &none           &none           &none           &none           &none                       &none           &none           &none           &none           &none           &sys_reset
+                                        &none           &trans          &none           &trans                      &trans          &none           &trans          &none
             >;
         };
     };
