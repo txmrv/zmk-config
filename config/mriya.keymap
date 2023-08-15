@@ -42,17 +42,17 @@
 
         default_layer {
             bindings = <
-&kp LALT    &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E   &gqt F5 R       &gqt F6 T           &gqt F7 Y       &gqt F8 U       &gqt F9 I       &gqt F10 O      &gqt F11 P          &gqt F12 LBKT   &mt LALT RBKT
+&lt 4 TAB   &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E   &gqt F5 R       &gqt F6 T           &gqt F7 Y       &gqt F8 U       &gqt F9 I       &gqt F10 O      &gqt F11 P          &gqt F12 LBKT   &lt 4 RBKT
             &kp LSHIFT      &gqt N1 A   &gqt N2 S   &gqt N3 D   &gqt NUMBER_4 F &gqt NUMBER_5 G     &gqt NUMBER_6 H &gqt NUMBER_7 J &gqt NUMBER_8 K &gqt NUMBER_9 L &gqt NUMBER_0 SEMI  &mt RSHIFT SQT
-            &kp LGUI        &kp Z       &kp X       &kp C       &kp V           &gqt MINUS B        &gqt EQUAL N    &kp M           &kp COMMA       &kp DOT         &kp FSLH            &mt RGUI BSLH
-                                        &lt 4 TAB   &kp LCTRL   &lt 2 SPACE     &lt 1 ESC           &lt 1 ENTER     &lt 2 SPACE     &mt RCTRL BSPC  &lt 4 DELETE
+            &kp LGUI        &kp Z       &kp X       &kp C       &gqt LSHIFT V   &gqt MINUS B        &gqt EQUAL N    &gqt RSHIFT M   &kp COMMA       &kp DOT         &kp FSLH            &mt RGUI BSLH
+                                        &kp LALT   &kp LCTRL   &lt 2 SPACE     &lt 1 ESC           &lt 1 ENTER     &lt 2 SPACE     &mt RCTRL BSPC  &mt LALT DEL
             >;
         };
 
         lower_layer {
             bindings = <
-&trans           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6          &kp F7         &kp F8        &kp F9               &kp F10                &kp F11          &kp F12  &kp LALT
-        &mt LCTRL EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6   &kp NUMBER_7  &kp NUMBER_8          &kp NUMBER_9           &kp NUMBER_0  &mt RCTRL MINUS
+&trans           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6          &kp F7         &kp F8        &kp F9               &kp F10                &kp F11          &kp F12  &trans
+        &mt LSHIFT EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6   &kp NUMBER_7  &kp NUMBER_8          &kp NUMBER_9           &kp NUMBER_0  &mt RSHIFT MINUS
           &mt LGUI PLUS      &kp EXCL        &kp AT      &kp HASH      &kp DLLR   &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp STAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS   &mt RGUI UNDER
                                              &trans        &trans        &trans        &trans          &trans         &trans        &trans                &trans
             >;
@@ -60,10 +60,10 @@
 
         raise_layer {
             bindings = <
-&trans   &none     &none     &none      &none       &none     &none      &kp ESC   &kp HOME     &kp UP    &kp END              &none          &none  &kp LALT
-        &trans  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHIFT  &sk RALT     &kp BSPC   &kp LEFT   &kp DOWN  &kp RIGHT            &kp DEL  &mt RCTRL TAB
+&mo ADJ   &none     &none     &none      &none       &none     &none      &kp ESC   &kp HOME     &kp UP    &kp END              &none          &none  &mo ADJ
+        &trans  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHIFT  &sk RALT     &kp BSPC   &kp LEFT   &kp DOWN  &kp RIGHT            &kp DEL  &mt RSHFT TAB
         &trans     &none     &none      &none       &none     &none    &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APPLICATION       &kp RGUI
-                            &trans      &mo 3      &trans    &trans       &trans     &trans      &mo 3     &trans
+                            &trans      &trans      &trans    &trans       &trans     &trans      &trans     &trans
             >;
         };
 
@@ -78,11 +78,11 @@
 
         numpad {
             bindings = <
-&trans   &none  &none   &none   &none   &none   &none    &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9    &kp KP_DIVIDE          &kp KP_NUM  &mt LALT ESC
-        &trans  &none   &none   &none   &none   &none        &kp KP_PLUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY  &mt RCTRL KP_ENTER
+&trans   &none  &none   &none   &none   &none   &none    &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9    &kp KP_DIVIDE          &kp KP_NUM  &kp ESC
+        &trans  &none   &none   &none   &none   &none        &kp KP_PLUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY  &kp KP_ENTER
         &trans  &none   &none   &none   &none   &none    &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3       &kp KP_DOT              &trans
                        &trans  &trans  &trans  &trans             &trans           &trans           &trans           &trans
             >;
         };
-    };
+    }
 };
