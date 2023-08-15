@@ -42,19 +42,19 @@
 
         default_layer {
             bindings = <
-&lt 4 TAB   &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E   &gqt F5 R       &gqt F6 T           &gqt F7 Y       &gqt F8 U       &gqt F9 I       &gqt F10 O      &gqt F11 P          &gqt F12 LBKT   &lt 4 RBKT
-            &kp LSHIFT      &gqt N1 A   &gqt N2 S   &gqt N3 D   &gqt NUMBER_4 F &gqt NUMBER_5 G     &gqt NUMBER_6 H &gqt NUMBER_7 J &gqt NUMBER_8 K &gqt NUMBER_9 L &gqt NUMBER_0 SEMI  &mt RSHIFT SQT
-            &kp LGUI        &kp Z       &kp X       &kp C       &gqt LSHIFT V   &gqt MINUS B        &gqt EQUAL N    &gqt RSHIFT M   &kp COMMA       &kp DOT         &kp FSLH            &mt RGUI BSLH
-                                        &kp LALT   &kp LCTRL   &lt 2 SPACE     &lt 1 ESC           &lt 1 ENTER     &lt 2 SPACE     &mt RCTRL BSPC  &mt LALT DEL
+&lt 4 TAB   &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E       &gqt F5 R       &gqt F6 T               &gqt F7 Y       &gqt F8 U       &gqt F9 I           &gqt F10 O          &gqt F11 P          &gqt F12 LBKT   &lt 4 RBKT
+            &kp LSHFT       &gqt LGUI A &gqt LALT S &gqt LCTRL D    &gqt LSHFT F    &gqt PLUS G             &gqt MINUS H    &gqt RSHFT J    &gqt RCTRL K        &gqt LALT L         &gqt RGUI SEMI      &mt RSHIFT SQT
+            &kp LGUI        &gqt N1 Z   &gqt N2 X   &gqt N3 C       &gqt NUMBER_4 V &gqt NUMBER_5 B         &gqt NUMBER_6 N &gqt NUMBER_7 M &gqt NUMBER_8 COMMA &gqt NUMBER_9 DOT   &gqt NUMBER_0 FSLH  &mt RGUI BSLH
+                                        &kp LALT    &kp LCTRL       &lt 2 SPACE     &lt 1 ESC               &lt 1 ENTER     &lt 2 SPACE     &mt RCTRL BSPC      &mt LALT DEL
             >;
         };
 
         lower_layer {
             bindings = <
-&trans           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6          &kp F7         &kp F8        &kp F9               &kp F10                &kp F11          &kp F12  &trans
-        &mt LSHIFT EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6   &kp NUMBER_7  &kp NUMBER_8          &kp NUMBER_9           &kp NUMBER_0  &mt RSHIFT MINUS
-          &mt LGUI PLUS      &kp EXCL        &kp AT      &kp HASH      &kp DLLR   &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp STAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS   &mt RGUI UNDER
-                                             &trans        &trans        &trans        &trans          &trans         &trans        &trans                &trans
+&none       &kp F1      &kp F2          &kp F3          &kp F4          &kp F5          &kp F6              &kp F7          &kp F8          &kp F9          &kp F10         &kp F11         &kp F12     &none
+            &trans      &kp LGUI        &kp LALT        &kp LCTRL       &kp LSHFT       &kp PLUS            &kp MINUS       &kp RSHFT       &kp RCTRL       &kp LALT        &kp RGUI        &kp RSHIFT
+            &trans      &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5        &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp RGUI
+                                        &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans
             >;
         };
 
