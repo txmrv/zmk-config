@@ -34,7 +34,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "GLOBAL_QUICK_TAP";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
             global-quick-tap;
@@ -52,7 +52,7 @@
 &kp LGUI    &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E       &gqt F5 R           &gqt F6 T               &gqt F7 Y           &gqt F8 U       &gqt F9 I               &gqt F10 O          &gqt F11 P          &gqt F12 LBKT   &mt RGUI RBKT
             &kp LCTRL       &gqt LGUI A &gqt LALT S &gqt LCTRL D    &gqt LSHFT F        &gqt EQUAL G            &gqt MINUS H        &gqt RSHFT J    &gqt RCTRL K            &gqt LALT L         &gqt RGUI SEMI      &mt RCTRL SQT
             &kp LALT        &gqt N1 Z   &gqt N2 X   &gqt N3 C       &gqt NUMBER_4 V     &gqt NUMBER_5 B         &gqt NUMBER_6 N     &gqt NUMBER_7 M &gqt NUMBER_8 COMMA     &gqt NUMBER_9 DOT   &gqt NUMBER_0 FSLH  &mt LALT BSLH
-                                        &kp LSHFT   &lt NPD TAB     &lt FN SPACE        &lt NUM ESC             &lt NUM ENTER       &lt FN SPACE    &lt NPD BSPC            &mt RSHFT DEL
+                                        &kp LSHFT   &lt NUM TAB     &lt FN SPACE        &lt NPD ESC             &lt NPD ENTER       &lt FN SPACE    &lt NUM BSPC            &mt RSHFT DEL
             >;
         };
 
