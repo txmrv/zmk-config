@@ -42,6 +42,16 @@
                 <&kp>,
                 <&kp>;
         };
+
+        bhm: balanced_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;    // <---[[moderate duration]]
+            quick-tap-ms = <0>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -50,7 +60,7 @@
         default {
             bindings = <
 &kp LGUI    &gqt F1 GRAVE   &gqt F2 Q   &gqt F3 W   &gqt F4 E       &gqt F5 R           &gqt F6 T               &gqt F7 Y           &gqt F8 U       &gqt F9 I               &gqt F10 O          &gqt F11 P          &gqt F12 LBKT   &mt RGUI RBKT
-            &kp LCTRL       &gqt LGUI A &gqt LALT S &gqt LCTRL D    &gqt LSHFT F        &gqt EQUAL G            &gqt MINUS H        &gqt RSHFT J    &gqt RCTRL K            &gqt LALT L         &gqt RGUI SEMI      &mt RCTRL SQT
+            &kp LCTRL       &bhm LGUI A &bhm LALT S &bhm LCTRL D    &bhm LSHFT F        &gqt EQUAL G            &gqt MINUS H        &bhm RSHFT J    &bhm RCTRL K            &bhm LALT L         &bhm RGUI SEMI      &mt RCTRL SQT
             &kp LALT        &gqt N1 Z   &gqt N2 X   &gqt N3 C       &gqt NUMBER_4 V     &gqt NUMBER_5 B         &gqt NUMBER_6 N     &gqt NUMBER_7 M &gqt NUMBER_8 COMMA     &gqt NUMBER_9 DOT   &gqt NUMBER_0 FSLH  &mt LALT BSLH
                                         &kp LSHFT   &lt NUM TAB     &lt FN SPACE        &lt NPD ESC             &lt NPD ENTER       &lt FN SPACE    &lt NUM BSPC            &mt RSHFT DEL
             >;
