@@ -81,16 +81,16 @@
 
         function {
             bindings = <
-&tog 4  &none  &none     &none     &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &none      &none    &tog 4
-        &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL    &kp TAB
-        &none  &none     &none     &none      &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP  &none
-                         &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
+&to 4  &none  &none     &none     &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &none      &none    &tog 4
+       &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL    &kp TAB
+       &none  &none     &none     &none      &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP  &none
+                        &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
             >;
         };
 
         system {
             bindings = <
-&none  &bootloader  &none         &none         &kp HASH      &none         &none           &none         &none         &none         &none         &none         &bootloader  &none
+&to 0  &bootloader  &none         &none         &kp HASH      &none         &none           &none         &none         &none         &none         &none         &bootloader  &none
        &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
        &sys_reset   &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &sys_reset
                                   &none         &trans        &none         &trans          &trans        &none         &trans        &none
