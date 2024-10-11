@@ -5,7 +5,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/keys.h>
 
 #define DEF 0
 #define NUM 1
@@ -13,16 +12,17 @@
 #define FN  3
 #define SYS 4
 
-quick-tap-ms = <200>;
-         require-prior-idle-ms = <200>;};
- 
+&lt {
          quick-tap-ms = <200>;
+         require-prior-idle-ms = <200>;
+};
 
-require-prior-idle-ms {
-    = <200>;};
+&mt {
+         quick-tap-ms = <200>;
+         require-prior-idle-ms = <200>;
+};
 
-/
-
+/ {
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
