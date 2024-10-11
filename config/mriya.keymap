@@ -81,10 +81,10 @@
 
         function {
             bindings = <
-&sl 4  &none  &none     &none     &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &none      &none    &sl 4
-       &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL    &kp TAB
-       &none  &none     &none     &none      &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP  &none
-                        &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
+&tog 4  &none  &none     &none     &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &none      &none    &tog 4
+        &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL    &kp TAB
+        &none  &none     &none     &none      &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP  &none
+                         &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
             >;
         };
 
