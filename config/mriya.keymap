@@ -73,7 +73,7 @@
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kp TAB>;
             mods = <(MOD_LALT)>;
-            keep-mods = <(MOD_ALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
 
         ctrl_tab: ctrl_tab {
