@@ -52,14 +52,14 @@
         combo_alt_tab {
             bindings = <&mod_tab LALT>;
             key-positions = <40 16>;
-            timeout-ms = <50>;
+            timeout-ms = <200>;
             slow-release;
         };
 
         combo_ctrl_tab {
              bindings = <&mod_tab LCTRL>;
              key-positions = <40 17>;
-             timeout-ms = <50>;
+             timeout-ms = <200>;
              slow-release;
         };
     };
@@ -114,10 +114,10 @@
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &none     &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  &alt_tab  &ctrl_tab  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none     &none      &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &none     &none      &none          &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  &alt_tab  &ctrl_tab  &kp LSHFT      &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none     &none      &kp LG(SPACE)  &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans    &trans     &trans         &trans      &trans     &trans     &trans     &trans
             >;
         };
 
