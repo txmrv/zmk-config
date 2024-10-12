@@ -62,14 +62,12 @@
                 <&macro_tap &kp TAB>,
                 <&macro_pause_for_release>,
                 <&macro_release &kp MACRO_PLACEHOLDER>;
-            label = "MOD_TAB";
         };
     };
 
     behaviors {
-        compatible = "zmk,behavior-mod-morph";
-
         alt_tab: alt_tab {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kp TAB>;
             mods = <(MOD_LALT)>;
@@ -77,6 +75,7 @@
         };
 
         ctrl_tab: ctrl_tab {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LCTRL>, <&kp TAB>;
             mods = <(MOD_LCTL)>;
