@@ -36,28 +36,51 @@
     combos {
         compatible = "zmk,combos";
 
-        alt_tab {
-            bindings = <&alt_tab>;
-            key-positions = <40 3>;
-            timeout-ms = <1000>;
+        combo_alt_tab {
+            bindings = <&mod_tab LALT>;
+            key-positions = <40 16>;
+            timeout-ms = <50>;
             slow-release;
+        };
+
+        combo_ctrl_tab {
+             bindings = <&mod_tab LCTRL>;
+             key-position = <40 17>;
+             timeout-ms = <50>;
+             slow-release;
         };
     };
 
     macros {
-        alt_tab: alt_tab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo 5 &kp LALT>,
-                <&macro_tap>,
-                <&kp TAB>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&kp LEFT_ALT &mo 5>;
+        compatible = "zmk,behavior-macro";
 
-            label = "ALT_TAB";
+        mod_tab: mod_tab {
+            #binding-cells = <1>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_press &kp MACRO_PLACEHOLDER>,
+                <&macro_tap &kp TAB>,
+                <&macro_pause_for_release>,
+                <&macro_release &kp MACRO_PLACEHOLDER>;
+            label = "MOD_TAB";
+        };
+    };
+
+    behaviors {
+        compatible = "zmk,behavior-mod-morph";
+
+        alt_tab: alt_tab {
+            #binding-cells = <0>;
+            bindings = <&kp LALT>, <&kp TAB>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_ALT)>;
+        };
+
+        ctrl_tab: ctrl_tab {
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp TAB>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
         };
     };
 
@@ -93,10 +116,10 @@
 
         function {
             bindings = <
-&none  &none  &none     &none     &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-       &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-       &none  &none     &none     &none      &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                        &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &none     &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  &alt_tab  &ctrl_tab  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none     &none      &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
             >;
         };
 
@@ -106,15 +129,6 @@
        &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
        &sys_reset   &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &sys_reset
                                   &trans        &trans        &trans        &trans          &trans        &trans        &trans        &trans
-            >;
-        };
-
-        alt_tab {
-            bindings = <
-&trans  &trans  &kp LS(TAB)  &kp TAB  &kp LS(TAB)  &kp TAB  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans       &trans   &trans       &trans   &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans       &trans   &trans       &trans   &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                             &trans   &trans       &trans   &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
