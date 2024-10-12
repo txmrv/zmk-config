@@ -41,7 +41,6 @@
             key-positions = <40 2>;
             timeout-ms = <0>;
             slow-release;
-            layers = <3>;
         };
 
         alt_tab2 {
@@ -49,7 +48,6 @@
             key-positions = <40 3>;
             timeout-ms = <0>;
             slow-release;
-            layers = <3>;
         };
     };
 
