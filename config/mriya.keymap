@@ -38,22 +38,8 @@
 
         alt_tab {
             bindings = <&alt_tab>;
-            key-positions = <40 2>;
-            timeout-ms = <1000>;
-            slow-release;
-        };
-
-        alt_tab2 {
-            bindings = <&kp LALT &mo 5>;
             key-positions = <40 3>;
             timeout-ms = <1000>;
-            slow-release;
-        };
-
-        alt_tab3 {
-            bindings = <&kp LALT &mo 5>;
-            key-positions = <40 4>;
-            timeout-ms = <(-1)>;
             slow-release;
         };
     };
@@ -125,10 +111,10 @@
 
         alt_tab {
             bindings = <
-&trans  &trans  &kp TAB  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans   &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans   &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &kp LS(TAB)  &kp TAB  &kp LS(TAB)  &kp TAB  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans       &trans   &trans       &trans   &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans       &trans   &trans       &trans   &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                             &trans   &trans       &trans   &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
