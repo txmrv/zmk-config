@@ -43,6 +43,14 @@
             slow-release;
             layers = <3>;
         };
+
+        alt_tab2 {
+            bindings = <&kp LA(TAB)>;
+            key-positions = <40 3>;
+            timeout-ms = <(-1)>;
+            slow-release;
+            layers = <3>;
+        };
     };
 
     macros {
