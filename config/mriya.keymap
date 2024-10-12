@@ -34,9 +34,8 @@
     };
 
     macros {
-        compatible = "zmk,behavior-macro";
-
         mod_tab: mod_tab {
+            compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
                 <&macro_param_1to1>,
