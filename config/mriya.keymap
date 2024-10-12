@@ -39,14 +39,14 @@
         alt_tab {
             bindings = <&alt_tab>;
             key-positions = <40 2>;
-            timeout-ms = <0>;
+            timeout-ms = <50>;
             slow-release;
         };
 
         alt_tab2 {
             bindings = <&kp LA(TAB)>;
             key-positions = <40 3>;
-            timeout-ms = <0>;
+            timeout-ms = <50>;
             slow-release;
         };
     };
