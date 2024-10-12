@@ -33,6 +33,20 @@
         };
     };
 
+    macros {
+        compatible = "zmk,behavior-macro";
+
+        mod_tab: mod_tab {
+            #binding-cells = <1>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_press &kp MACRO_PLACEHOLDER>,
+                <&macro_tap &kp TAB>,
+                <&macro_pause_for_release>,
+                <&macro_release &kp MACRO_PLACEHOLDER>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -48,20 +62,6 @@
              key-position = <40 17>;
              timeout-ms = <50>;
              slow-release;
-        };
-    };
-
-    macros {
-        compatible = "zmk,behavior-macro";
-
-        mod_tab: mod_tab {
-            #binding-cells = <1>;
-            bindings =
-                <&macro_param_1to1>,
-                <&macro_press &kp MACRO_PLACEHOLDER>,
-                <&macro_tap &kp TAB>,
-                <&macro_pause_for_release>,
-                <&macro_release &kp MACRO_PLACEHOLDER>;
         };
     };
 
