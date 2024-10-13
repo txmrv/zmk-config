@@ -13,6 +13,9 @@
 #define FN  3
 #define SYS 4
 
+#define RMRL(layer) &macro_release_mods_on_release_layer layer
+#define SW_LNG &kp LG(SPACE)
+
 &lt {
     quick-tap-ms = <200>;
     require-prior-idle-ms = <200>;
@@ -34,51 +37,58 @@
     };
 
     macros {
-        mod_tab: mod_tab {
+        macro_release_mods_on_release_layer: macro_release_mods_on_release_layer {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
+                <
                 <&macro_param_1to1>,
-                <&macro_press &kp MACRO_PLACEHOLDER>,
-                <&macro_tap &kp TAB>,
+                <&macro_press &mo MACRO_PLACEHOLDER>,
                 <&macro_pause_for_release>,
-                <&macro_release &kp MACRO_PLACEHOLDER>;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        combo_alt_tab {
-            bindings = <&mod_tab LALT>;
-            key-positions = <40 16>;
-            timeout-ms = <200>;
-            slow-release;
-        };
-
-        combo_ctrl_tab {
-             bindings = <&mod_tab LCTRL>;
-             key-positions = <40 17>;
-             timeout-ms = <200>;
-             slow-release;
+                <&macro_tap &release_alt>,
+                <&macro_tap &release_ctrl>,
+                <&macro_tap &release_shft>,
+                <&macro_tap &release_gui>,
+                <&macro_param_1to1>,
+                <&macro_release &mo MACRO_PLACEHOLDER>;
         };
     };
 
     behaviors {
-        alt_tab: alt_tab {
+        mod_tab: mod_tab {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LALT>, <&kp TAB>;
-            mods = <(MOD_LALT)>;
-            keep-mods = <(MOD_LALT)>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            mods = <(MOD_LALT | MOD_LCTL | MOD_LSFT | MOD_LGUI)>;
+            keep-mods = <(MOD_LALT | MOD_LCTL | MOD_LSFT | MOD_LGUI)>;
         };
 
-        ctrl_tab: ctrl_tab {
+        release_alt: release_alt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL>, <&kp TAB>;
+            bindings = <&none>, <&kt LALT>;
+            mods = <(MOD_LALT)>;
+        };
+
+        release_ctrl: release_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kt LCTRL>;
             mods = <(MOD_LCTL)>;
-            keep-mods = <(MOD_LCTL)>;
+        };
+
+        release_shft: release_shft {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kt LSHFT>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        release_gui: release_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kt LGUI>;
+            mods = <(MOD_LGUI)>;
         };
     };
 
@@ -90,7 +100,7 @@
 &kp LGUI  &kp GRAVE  &kp Q  &kp W      &kp E           &kp R         &kp T        &kp Y        &kp U         &kp I            &kp O      &kp P          &kp LEFT_BRACKET  &mt RALT RIGHT_BRACKET
           &kp LCTRL  &kp A  &kp S      &kp D           &kp F         &kp G        &kp H        &kp J         &kp K            &kp L      &kp SEMICOLON  &mt RCTRL SQT
           &kp LALT   &kp Z  &kp X      &kp C           &kp V         &kp B        &kp N        &kp M         &kp COMMA        &kp DOT    &kp SLASH      &mt LALT BSLH
-                            &lt 2 ESC  &kp LEFT_SHIFT  &lt FN SPACE  &lt 1 TAB    &lt 1 ENTER  &lt FN SPACE  &mt RSHIFT BSPC  &lt 2 DEL
+                            &lt 2 ESC  &kp LEFT_SHIFT  &mt RMRL FN SPACE  &lt 1 TAB    &lt 1 ENTER  &lt FN SPACE  &mt RSHIFT BSPC  &lt 2 DEL
             >;
         };
 
@@ -114,10 +124,10 @@
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &none     &none      &none          &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  &alt_tab  &ctrl_tab  &kp LSHFT      &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none     &none      &kp LG(SPACE)  &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans    &trans     &trans         &trans      &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &none    &none     &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  ALT_TAB  CTRL_TAB  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none    SW_LNG    &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans   &trans    &trans     &trans      &trans     &trans     &trans     &trans
             >;
         };
 
