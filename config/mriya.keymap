@@ -70,7 +70,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <&macro_rmrl>, <&kp>;
+            bindings = <&m_rmrl>, <&kp>;
         };
 
         alt_tab: alt_tab {
