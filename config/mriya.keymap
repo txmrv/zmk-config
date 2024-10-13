@@ -68,7 +68,14 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <&kp>, <&press_alt &kp>;
+            bindings = <&kp>, <&press_alt>;
+        };
+
+        alt_tab: alt_tab {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&al LALT TAB>, <&kp TAB>;
+            mods = <(MOD_LALT)>;
         };
 
         press_alt: press_alt {
@@ -160,10 +167,10 @@
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &at LALT TAB  &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  &kp LALT      &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none         SW_LNG     &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans        &trans     &trans     &trans      &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &alt_tab  &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none     SW_LNG     &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
             >;
         };
 
