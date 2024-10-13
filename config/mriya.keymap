@@ -51,14 +51,15 @@
                 <&macro_release &mo MACRO_PLACEHOLDER>;
         };
 
-        m_alttab: macro_alt_tab {
+        m_modtab: macro_hold_mod_press_tab {
             compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
             bindings =
                 <&macro_param_1to1>,
-                <&macro_press &kt MACRO_PLACEHOLDER>,
+                <&macro_press &kp MACRO_PLACEHOLDER>,
                 <&macro_param_2to1>,
-                <&macro_tab &kp MACRO_PLACEHOLDER>;
+                <&macro_tap>,
+
         };
     };
 
@@ -78,7 +79,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <none>, <&none>;
+            bindings = <&none>, <&none>;
         };
 
         press_alt: press_alt {
