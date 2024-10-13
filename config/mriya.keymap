@@ -50,6 +50,15 @@
                 <&macro_param_1to1>,
                 <&macro_release &mo MACRO_PLACEHOLDER>;
         };
+
+        m_modtab: macro_toggle_mod_press_tab {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_press &kp MACRO_PLACEHOLDER>,
+                <&macro_tap &kp TAB>;
+        };
     };
 
     behaviors {
@@ -77,15 +86,15 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <&kp>, <&press_alt>;
+            bindings = <&kp>, <&m_modtab>;
         };
 
         alt_tab: alt_tab {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&at LALT TAB>, <&kp TAB>;
+            bindings = <&at LALT LALT>, <&kp TAB>;
             mods = <(MOD_LALT)>;
-            keep_mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
 
         press_alt: press_alt {
