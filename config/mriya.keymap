@@ -151,10 +151,10 @@
 
         numpad {
             bindings = <
-&none  &none  &none  &none   &none   &none   &none     &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp ESCAPE    &kp KP_NUM
-       &none  &none  &none   &K_CALCULATOR   &C_AL_CALCULATOR   &none     &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS   &kp KP_ENTER
-       &none  &none  &none   &none   &none   &none     &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT     &none
-                     &trans  &trans  &trans  &trans    &trans           &trans           &trans           &trans
+&none  &none  &none  &none   &none       &none          &none     &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp ESCAPE    &kp KP_NUM
+       &none  &none  &none   &kp K_CALC  &kp C_AL_CALC  &none     &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS   &kp KP_ENTER
+       &none  &none  &none   &none       &none          &none     &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT     &none
+                     &trans  &trans      &trans         &trans    &trans           &trans           &trans           &trans
             >;
         };
 
