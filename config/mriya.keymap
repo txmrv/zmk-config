@@ -50,16 +50,6 @@
                 <&macro_param_1to1>,
                 <&macro_release &mo MACRO_PLACEHOLDER>;
         };
-
-        m_modtab: macro_hold_mod_press_tab {
-            compatible = "zmk,behavior-macro-two-param";
-            #binding-cells = <2>;
-            bindings =
-                <&macro_param_1to1>,
-                <&macro_press &kp MACRO_PLACEHOLDER>,
-                <&macro_param_2to1>,
-                <&macro_tap &kp MACRO_PLACEHOLDER>;
-        };
     };
 
     behaviors {
@@ -72,13 +62,13 @@
             bindings = <&m_rmrl>, <&kp>;
         };
 
-        alt_tab: alt_tab {
+        at: alt_tab {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <&none>, <&none>;
+            bindings = <&kp>, <&press_alt &kp>;
         };
 
         press_alt: press_alt {
@@ -162,7 +152,7 @@
         numpad {
             bindings = <
 &none  &none  &none  &none   &none   &none   &none     &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp ESCAPE    &kp KP_NUM
-       &none  &none  &none   &none   &none   &none     &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS   &kp KP_ENTER
+       &none  &none  &none   &K_CALCULATOR   &C_AL_CALCULATOR   &none     &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS   &kp KP_ENTER
        &none  &none  &none   &none   &none   &none     &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT     &none
                      &trans  &trans  &trans  &trans    &trans           &trans           &trans           &trans
             >;
@@ -170,10 +160,10 @@
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &alt_tab  &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none     SW_LNG     &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &at LALT TAB  &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  &kp LALT      &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none         SW_LNG     &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans        &trans     &trans     &trans      &trans     &trans     &trans     &trans
             >;
         };
 
