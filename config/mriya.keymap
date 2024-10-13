@@ -160,7 +160,7 @@
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &alt_tab  &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+&kp CAPS  &none  &none     &alt_tab 0 0  &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
           &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
           &none  &none     &none     SW_LNG     &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
                            &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
