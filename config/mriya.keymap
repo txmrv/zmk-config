@@ -50,6 +50,14 @@
                 <&macro_param_1to1>,
                 <&macro_release &mo MACRO_PLACEHOLDER>;
         };
+
+        macro_tmpt: macro_toggle_mod_press_tab {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_tap &kt LA(TAB)>
+        };
     };
 
     behaviors {
@@ -60,6 +68,43 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             bindings = <&macro_rmrl>, <&kp>;
+        };
+
+        alt_tab: alt_tab {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&kp LALT>, <&press_alt &kp TAB>;
+        };
+
+        press_alt: press_alt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kt LALT>, <&none>;
+            mods = <(MOD_LALT)>;
+        };
+
+        press_ctrl: press_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kt LCTRL>, <&none>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        press_shift: press_shift {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kt LSHFT>, <&none>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        press_gui: press_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kt LGUI>, <&none>;
+            mods = <(MOD_LGUI)>;
         };
 
         release_alt: release_alt {
@@ -96,7 +141,7 @@
 
         default {
             bindings = <
-&kp LGUI  &kp GRAVE  &kp Q  &kp W      &kp E       &kp R           &kp T        &kp Y        &kp U         &kp I            &kp O      &kp P          &kp LEFT_BRACKET  &mt RALT RIGHT_BRACKET
+&kp LGUI  &kp GRAVE  &kp Q  &kp W      &kp E       &kp R           &kp T        &kp Y        &kp U         &kp I            &kp O      &kp P          &kp LEFT_BRACKET  &mt RGUI RIGHT_BRACKET
           &kp LCTRL  &kp A  &kp S      &kp D       &kp F           &kp G        &kp H        &kp J         &kp K            &kp L      &kp SEMICOLON  &mt RCTRL SQT
           &kp LALT   &kp Z  &kp X      &kp C       &kp V           &kp B        &kp N        &kp M         &kp COMMA        &kp DOT    &kp SLASH      &mt LALT BSLH
                             &lt 2 ESC  &kp LSHIFT  &ltrm FN SPACE  &lt 1 TAB    &lt 1 ENTER  &lt FN SPACE  &mt RSHIFT BSPC  &lt 2 DEL
@@ -105,10 +150,10 @@
 
         numbers {
             bindings = <
-&kp LEFT_WIN  &kp F1     &kp F2             &kp F3             &kp F4              &kp F5              &kp F6         &kp F7     &kp F8         &kp F9        &kp F10               &kp F11                &kp F12    &kt RIGHT_ALT
-              &kp PLUS   &mt LGUI NUMBER_1  &mt LALT NUMBER_2  &mt LCTRL NUMBER_3  &mt LSHFT NUMBER_4  &kp N5         &kp N6     &mt RSHFT N7   &mt RCTRL N8  &mt LALT N9           &mt RGUI N0            &kp MINUS
-              &kp EQUAL  &kp EXCLAMATION    &kp AT             &kp HASH            &kp DOLLAR          &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDER
-                                            &trans             &trans              &trans              &trans         &trans     &trans         &trans        &trans
+&kp LEFT_WIN  &kp F1          &kp F2           &kp F3        &kp F4        &kp F5        &kp F6         &kp F7     &kp F8         &kp F9        &kp F10   &kp F11   &kp F12          &kp R_GUI
+              &mt LCTRL PLUS  &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5         &kp N6     &kp N7         &kp N8        &kp N9    &kp N0    &mt RCTRL MINUS
+              &mt LALT EQUAL  &kp EXCLAMATION  &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR  &kp RPAR  &mt LALT UNDER
+                                          &trans        &trans        &trans        &trans         &trans     &trans         &trans        &trans
             >;
         };
 
@@ -123,10 +168,10 @@
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &none    &none     &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  ALT_TAB  CTRL_TAB  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none    SW_LNG    &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans   &trans    &trans     &trans      &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &alt_tab  &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  &kp LALT  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none     SW_LNG     &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans    &trans     &trans     &trans      &trans     &trans     &trans     &trans
             >;
         };
 
