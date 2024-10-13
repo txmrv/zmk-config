@@ -58,7 +58,7 @@
                 <&macro_param_1to1>,
                 <&macro_press &kp MACRO_PLACEHOLDER>,
                 <&macro_param_2to1>,
-                <&macro_tap>;
+                <&macro_tap MACRO_PLACEHOLDER>;
 
         };
     };
@@ -70,7 +70,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <&macro_rmrl>, <&kp>;
+            bindings = <&m_rmrl>, <&kp>;
         };
 
         alt_tab: alt_tab {
