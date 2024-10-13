@@ -62,7 +62,7 @@
             bindings = <&m_rmrl>, <&kp>;
         };
 
-        at: alt_tab {
+        at: at {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
