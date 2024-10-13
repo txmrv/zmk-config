@@ -85,7 +85,7 @@
             #binding-cells = <0>;
             bindings = <&at LALT TAB>, <&kp TAB>;
             mods = <(MOD_LALT)>;
-            keep_mods = <(MOD_LGUI|MOD_LSFT|MOD_LALT|MOD_LCTL)>;
+            keep_mods = <(MOD_LALT)>;
         };
 
         press_alt: press_alt {
