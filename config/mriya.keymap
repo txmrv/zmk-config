@@ -41,14 +41,13 @@
         m_rmrl: macro_release_mods_on_release_layer {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_param_1to1>,
                 <&macro_press &mo MACRO_PLACEHOLDER>,
                 <&macro_pause_for_release>,
-                <&macro_tap &release_alt>,
-                <&macro_tap &release_ctrl>,
-                <&macro_tap &release_shft>,
-                <&macro_tap &release_gui>,
+                <&macro_tap &release_alt &release_ctrl &release_shft &release_gui>,
                 <&macro_param_1to1>,
                 <&macro_release &mo MACRO_PLACEHOLDER>;
         };
@@ -56,6 +55,8 @@
         m_modtab: macro_toggle_mod_press_tab {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_param_1to1>,
                 <&macro_press &kp MACRO_PLACEHOLDER>,
