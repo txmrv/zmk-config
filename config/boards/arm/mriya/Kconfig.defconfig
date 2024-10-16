@@ -21,6 +21,9 @@ endif # BOARD_MRIYA_RIGHT
 
 if BOARD_MRIYA_LEFT || BOARD_MRIYA_RIGHT
 
+config ZMK_STUDIO
+	default y
+
 config BOARD
 	default "mriya"
 
