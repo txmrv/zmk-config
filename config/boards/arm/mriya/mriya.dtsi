@@ -133,3 +133,12 @@
 		};
 	};
 };
+
+zephyr_udc0: &usbd {
+	compatible = "nordic,nrf-usbd";
+	status = "okay";
+
+	degu_cdc_acm_uart: degu_cdc_acm_uart {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
