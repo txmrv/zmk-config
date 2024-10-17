@@ -59,7 +59,7 @@
             tap-ms = <0>;
             bindings =
                 <&macro_param_1to1>,
-                <&macro_press &sk500 MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
+                <&macro_press &sk500 MACRO_PLACEHOLDER>,
                 <&macro_tap &kp TAB>;
         };
     };
