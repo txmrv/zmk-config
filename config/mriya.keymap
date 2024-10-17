@@ -13,8 +13,8 @@
 #define SYS 4
 
 #define SW_LNG &kp LG(SPACE)
-#define ST(key) &st1500 key key
-#define MOD_TAB(mod) &st mod TAB
+#define ST(key) &hs1500 key key
+#define MOD_TAB(mod) &ht200 mod TAB
 
 
 &lt {
@@ -81,7 +81,16 @@
             ignore-modifiers;
         };
 
-        st1500: sticky_tap_1500ms {
+        sk500: sticky_key_500ms {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <500>;
+            quick-release;
+            ignore-modifiers;
+        };
+
+        hs1500: hold_sticky_1500ms {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -92,7 +101,7 @@
             bindings = <&kp>, <&sk1500>;
         };
 
-        st: sticky_tap {
+        hs200: hold_sticky_200 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -100,7 +109,18 @@
             quick-tap-ms = <200>;
             hold-while-undecided;
             hold-while-undecided-linger;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&sk500>;
+        };
+
+        ht200: hold_tap_200 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            hold-while-undecided;
+            hold-while-undecided-linger;
+            bindings = <&hs200 LALT>, <&kp>;
         };
 
         press_alt: press_alt {
