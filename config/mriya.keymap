@@ -133,7 +133,7 @@
         alt_tab: alt_tab {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&at LALT 0>, <&kp TAB>;
+            bindings = <&at LALT LALT>, <&kp TAB>;
             mods = <(MOD_LALT)>;
             keep-mods = <(MOD_LALT)>;
         };
