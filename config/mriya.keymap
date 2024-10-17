@@ -236,7 +236,7 @@ ST(LGUI)  &kp GRAVE  &kp Q  &kp W             &kp E        &kp R           &kp T
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &none     &AT        &none      &kp K_CANCEL  &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+&kp CAPS  &none  &none     &none     AT         &none      &kp K_CANCEL  &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
           &none  &kp LWIN  &alt_tab  &kp LCTRL  &kp LSHFT  &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
           &none  &none     &none     SW_LNG     &none      &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
                            &trans    &trans     &trans     &trans        &trans     &trans     &trans     &trans
