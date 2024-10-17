@@ -14,7 +14,7 @@
 
 #define SW_LNG &kp LG(SPACE)
 #define ST(key) &st key (&sk1500 key)
-#define AT(key) &st key (&kp TAB)
+#define MOD_TAB(key) &st key (&kp TAB)
 
 
 &lt {
@@ -201,10 +201,10 @@ ST(LGUI)  &kp GRAVE  &kp Q  &kp W             &kp E        &kp R           &kp T
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &none     &none      &none      &to DEF       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  AT(LALT)  &kp LCTRL  &kp LSHFT  &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none     SW_LNG     &none      &to FN        &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans    &trans     &trans     &trans        &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &none          &none      &none      &to DEF       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  MOD_TAB(LALT)  &kp LCTRL  &kp LSHFT  &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none          SW_LNG     &none      &to FN        &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans         &trans     &trans     &trans        &trans     &trans     &trans     &trans
             >;
         };
 
