@@ -59,6 +59,8 @@
             tap-ms = <40>;
             bindings =
                 <&macro_param_1to1>,
+                <&macro_press &kp MACRO_PLACEHOLDER>;
+                <&macro_param_1to1>,
                 <&macro_tap &kp TAB &sk500 MACRO_PLACEHOLDER>;
         };
     };
@@ -127,8 +129,6 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
             bindings = <&kp>, <&m_smtab>;
         };
 
