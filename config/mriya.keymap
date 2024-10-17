@@ -60,8 +60,9 @@
             bindings =
                 <&macro_param_1to1>,
                 <&macro_press &kp MACRO_PLACEHOLDER>,
+                <&macro_tap &kp TAB>,
                 <&macro_param_1to1>,
-                <&macro_tap &kp TAB &sk500 MACRO_PLACEHOLDER>;
+                <&macro_tap &sk500 MACRO_PLACEHOLDER>;
         };
     };
 
