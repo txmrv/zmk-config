@@ -13,8 +13,8 @@
 #define SYS 4
 
 #define SW_LNG &kp LG(SPACE)
-#define ST(key) &st key key
-#define AT &alt_tab2 LALT 0
+#define ST(key) &st key (&sk1500 key)
+#define AT(key) &st key (&kp TAB)
 
 
 &lt {
@@ -69,7 +69,7 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
-                <&sk LALT &kp TAB>;
+                <&sk200 LALT &kp TAB>;
         };
     };
 
@@ -86,13 +86,13 @@
         ltrm: layer_tap_release_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             bindings = <&m_rmrl>, <&kp>;
         };
 
-        lsk: lazy_sticky_key {
+        sk1500: sticky_key_1500ms {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
             bindings = <&kp>;
@@ -104,47 +104,12 @@
         st: sticky_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             hold-while-undecided;
             hold-while-undecided-linger;
-            bindings = <&kp>, <&lsk>;
-        };
-
-        at: at {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&m_modtab>;
-        };
-
-        sk200: sticky_key_200ms {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <200>;
-            quick-release;
-            ignore-modifiers;
-        };
-
-        alt_tab: alt_tab {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&at LALT LALT>, <&kp TAB>;
-            mods = <(MOD_LALT)>;
-            keep-mods = <(MOD_LALT)>;
-        };
-
-        alt_tab2: alt_tab2 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&m_skat>;
+            bindings = <&kp>, <>;
         };
 
         press_alt: press_alt {
@@ -236,9 +201,9 @@ ST(LGUI)  &kp GRAVE  &kp Q  &kp W             &kp E        &kp R           &kp T
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &none     AT         &none      &kp K_CANCEL  &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  &alt_tab  &kp LCTRL  &kp LSHFT  &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none     SW_LNG     &none      &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+&kp CAPS  &none  &none     &none     &none      &none      &to DEF       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  AT        &kp LCTRL  &kp LSHFT  &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none     SW_LNG     &none      &to FN        &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
                            &trans    &trans     &trans     &trans        &trans     &trans     &trans     &trans
             >;
         };
