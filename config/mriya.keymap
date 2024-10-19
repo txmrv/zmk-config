@@ -193,7 +193,7 @@
             bindings = <&kp>, <&m_smtab>;
         };
 
-        ht200_2: hold_tap_200 {
+        ht200_2: hold_tap_200_2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -202,7 +202,7 @@
             bindings = <&kp>, <&m_smtab2>;
         };
 
-        ht200_3: hold_tap_200 {
+        ht200_3: hold_tap_200_3 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
