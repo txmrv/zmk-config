@@ -60,10 +60,12 @@
             bindings =
                 <&macro_param_1to1>,
                 <&macro_press &sk500 MACRO_PLACEHOLDER>,
-                <&macro_tap &kp TAB>,
+                <&macro_press &kp TAB>,
+                <&macro_param_1to1>,
+                <&macro_release &sk500 MACRO_PLACEHOLDER>,
                 <&macro_param_1to1>,
                 <&macro_tap &sk500 MACRO_PLACEHOLDER>,
-                <&macro_release &sk500 MACRO_PLACEHOLDER>;
+                <&macro_release &kp TAB>;
         };
 
         m_hlor: macro_hold_layer_on_release {
