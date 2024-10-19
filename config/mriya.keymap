@@ -14,7 +14,7 @@
 
 #define SW_LNG &kp LG(SPACE)
 #define ST(key) &hs1500 key key
-#define MOD_TAB(mod) &ht200 mod TAB
+#define MOD_TAB(mod) &ht200 mod mod
 
 
 &lt {
@@ -59,10 +59,11 @@
             tap-ms = <40>;
             bindings =
                 <&macro_param_1to1>,
-                <&macro_press &press_alt>,
+                <&macro_press &sk500 MACRO_PLACEHOLDER>,
                 <&macro_tap &kp TAB>,
                 <&macro_param_1to1>,
-                <&macro_tap &sk500 MACRO_PLACEHOLDER>;
+                <&macro_tap &sk500 MACRO_PLACEHOLDER>,
+                <&macro_release &sk500 MACRO_PLACEHOLDER>;
         };
 
         m_hlor: macro_hold_layer_on_release {
@@ -149,9 +150,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&m_smtab>;
         };
 
         press_alt: press_alt {
