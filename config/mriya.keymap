@@ -64,6 +64,17 @@
                 <&macro_param_1to1>,
                 <&macro_tap &sk500 MACRO_PLACEHOLDER>;
         };
+
+        m_hlor: macro_hold_layer_on_release {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&macro_pause_for_release>,
+                <&macro_param_1to1>,
+                <&macro_tap &to MACRO_PLACEHOLDER>;
+        };
     };
 
     behaviors {
@@ -85,6 +96,14 @@
             bindings = <&m_rmrl>, <&kp>;
         };
 
+        sk500: sticky_key_500ms {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <500>;
+            ignore-modifiers;
+        };
+
         sk1500: sticky_key_1500ms {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
@@ -94,11 +113,11 @@
             ignore-modifiers;
         };
 
-        sk500: sticky_key_500ms {
+        sk2000: sticky_key_2000ms {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
             bindings = <&kp>;
-            release-after-ms = <500>;
+            release-after-ms = <2000>;
             ignore-modifiers;
         };
 
@@ -197,37 +216,37 @@
 
         default {
             bindings = <
-ST(LGUI)  &kp GRAVE  &kp Q  &kp W             &kp E        &kp R           &kp T        &kp Y        &kp U         &kp I            &kp O      &kp P          &kp LEFT_BRACKET  &mt RGUI RIGHT_BRACKET
-          ST(LCTRL)  &kp A  &kp S             &kp D        &kp F           &kp G        &kp H        &kp J         &kp K            &kp L      &kp SEMICOLON  &mt RCTRL SQT
-          ST(LALT)   &kp Z  &kp X             &kp C        &kp V           &kp B        &kp N        &kp M         &kp COMMA        &kp DOT    &kp SLASH      &mt LALT BSLH
-                            &ltt 2 LG(SPACE)  ST(LSHIFT)   &ltrm FN SPACE  &lt 1 TAB    &lt 1 ENTER  &lt FN SPACE  &mt RSHIFT BSPC  &ltt 2 DEL
+ST(LGUI)  &kp GRAVE  &kp Q  &kp W     &kp E       &kp R           &kp T        &kp Y        &kp U         &kp I                &kp O      &kp P          &kp LEFT_BRACKET  &mt RGUI RIGHT_BRACKET
+          ST(LCTRL)  &kp A  &kp S     &kp D       &kp F           &kp G        &kp H        &kp J         &kp K                &kp L      &kp SEMICOLON  &mt RCTRL SQT
+          ST(LALT)   &kp Z  &kp X     &kp C       &kp V           &kp B        &kp N        &kp M         &kp COMMA            &kp DOT    &kp SLASH      &mt LALT BSLH
+                            &tog NUM  ST(LSHIFT)  &ltrm FN SPACE  &lt 1 TAB    &lt 1 ENTER  &lt FN SPACE  &mt RSHFT RG(SPACE)  &tog NUM
             >;
         };
 
         numbers {
             bindings = <
-&kp LEFT_WIN  &kp F1          &kp F2           &kp F3        &kp F4        &kp F5        &kp F6         &kp F7     &kp F8         &kp F9        &kp F10   &kp F11   &kp F12          &kp RGUI
-              &mt LCTRL PLUS  &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5         &kp N6     &kp N7         &kp N8        &kp N9    &kp N0    &mt RCTRL MINUS
-              &mt LALT EQUAL  &kp EXCLAMATION  &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR  &kp RPAR  &mt LALT UNDER
-                                          &trans        &trans        &trans        &trans         &trans     &trans         &trans        &trans
+&kp LGUI  &kp F1          &kp F2           &kp F3        &kp F4        &kp F5        &kp F6         &kp F7     &kp F8         &kp F9        &kp F10   &kp F11   &kp F12          &kp RGUI
+          &mt LCTRL PLUS  &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5         &kp N6     &kp N7         &kp N8        &kp N9    &kp N0    &mt RCTRL MINUS
+          &mt LALT EQUAL  &kp EXCLAMATION  &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR  &kp RPAR  &mt LALT UNDER
+                                           &trans        &trans        &trans        &trans         &trans     &trans         &trans        &trans
             >;
         };
 
         numpad {
             bindings = <
-&kp LEFT_WIN  &none  &none  &none   &none   &none   &none     &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp ESCAPE     &mt RGUI KP_NUM
-       &kp LCTRL  &none  &none   &none   &none   &none     &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS   &mt RCTRL KP_ENTER
-       &kp LALT  &none  &none   &none   &none   &none     &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT     &mt LALT C_AL_CALC
-                     &trans  &trans  &trans  &trans    &trans           &trans           &trans           &trans
+&kp LGUI  &none      &none   &none   &none   &none   &none     &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp ESCAPE     &mt RGUI KP_NUM
+          &kp LCTRL  &none   &none   &none   &none   &none     &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS   &mt RCTRL KP_ENTER
+          &kp LALT   &none   &none   &none   &none   &none     &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT     &mt LALT C_AL_CALC
+                             &trans  &trans  &trans  &trans    &trans           &trans           &trans           &trans
             >;
         };
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &none          &none      &none      &none       &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  MOD_TAB(LALT)  &kp LCTRL  &kp LSHFT  &sk RALT    &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none          SW_LNG     &none      &none       &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans         &trans     &trans     &trans      &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &sk2000 LSHIFT  &press_shift  &release_shft  &m_hlor FN    &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  MOD_TAB(LALT)   &kp LCTRL     &kp LSHFT      &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     &none           &none         &none          &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans          &trans        &trans         &trans        &trans     &trans     &trans     &trans
             >;
         };
 
