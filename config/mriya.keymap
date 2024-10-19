@@ -87,7 +87,7 @@
                 <&macro_release &sk1000 MACRO_PLACEHOLDER>;
         };
 
-        m_smtab3: macro_sticky_mod_tab2 {
+        m_smtab3: macro_sticky_mod_tab3 {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
