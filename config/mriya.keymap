@@ -16,6 +16,9 @@
 #define ST(key) &hsul1500 key key
 #define MOD_TAB(mod) &ht200 mod mod
 
+#define MOD_TAB2(mod) &ht200_2 mod mod
+#define MOD_TAB3(mod) &ht200_3 mod mod
+
 #define A_LGUI &ts1500 LGUI A
 #define S_LALT &ts1500 LALT S
 #define D_LCTRL &ts1500 LCTRL D
@@ -69,6 +72,30 @@
                 <&macro_param_1to1>,
                 <&macro_tap &sk1000 MACRO_PLACEHOLDER>,
                 <&macro_release &kp TAB>;
+        };
+
+        m_smtab2: macro_sticky_mod_tab {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_press &sk1000 MACRO_PLACEHOLDER>,
+                <&macro_tap &kp TAB>,
+                <&macro_param_1to1>,
+                <&macro_kp &sk1000 MACRO_PLACEHOLDER>,
+                <&macro_param_1to1>,
+                <&macro_release &sk1000 MACRO_PLACEHOLDER>;
+        };
+
+        m_smtab3: macro_sticky_mod_tab {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_press &sk1000 MACRO_PLACEHOLDER>,
+                <&macro_tap &kp TAB>,
+                <&macro_param_1to1>,
+                <&macro_kp &sk1000 MACRO_PLACEHOLDER>;
         };
 
         m_hlor: macro_hold_layer_on_release {
@@ -150,9 +177,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <200>;
             bindings = <&sk1500>, <&kp>;
         };
 
@@ -164,6 +191,24 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&m_smtab>;
+        };
+
+        ht200_2: hold_tap_200 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&m_smtab2>;
+        };
+
+        ht200_3: hold_tap_200 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&m_smtab3>;
         };
 
         press_alt: press_alt {
@@ -255,10 +300,10 @@ ST(LGUI)  &kp GRAVE  &kp Q   &kp W     &kp E       &kp R           &kp T        
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &sk2000 LSHIFT  &press_shift  &release_shft  &m_hlor FN    &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  MOD_TAB(LALT)   &kp LCTRL     &kp LSHFT      &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     &none           &none         &none          &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans          &trans        &trans         &trans        &trans     &trans     &trans     &trans
+&kp CAPS  &none  &none     &sk2000 LSHIFT  &press_shift    &release_shft  &m_hlor FN    &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+          &none  &kp LWIN  MOD_TAB(LALT)   &kp LCTRL       &kp LSHFT      &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+          &none  &none     MOD_TAB2(LALT)  MOD_TAB3(LALT)  &none          &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                           &trans          &trans          &trans         &trans        &trans     &trans     &trans     &trans
             >;
         };
 
