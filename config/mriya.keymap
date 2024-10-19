@@ -82,7 +82,7 @@
                 <&macro_press &sk1000 MACRO_PLACEHOLDER>,
                 <&macro_tap &kp TAB>,
                 <&macro_param_1to1>,
-                <&macro_kp &sk1000 MACRO_PLACEHOLDER>,
+                <&macro_tap &sk1000 MACRO_PLACEHOLDER>,
                 <&macro_param_1to1>,
                 <&macro_release &sk1000 MACRO_PLACEHOLDER>;
         };
@@ -95,7 +95,7 @@
                 <&macro_press &sk1000 MACRO_PLACEHOLDER>,
                 <&macro_tap &kp TAB>,
                 <&macro_param_1to1>,
-                <&macro_kp &sk1000 MACRO_PLACEHOLDER>;
+                <&macro_tap &sk1000 MACRO_PLACEHOLDER>;
         };
 
         m_hlor: macro_hold_layer_on_release {
