@@ -15,11 +15,11 @@
 #define SW_LNG &kp LG(SPACE)
 #define ST(key) &hst_1500_250 key key
 
-#define ST_LG(key) &st_1500_250 LGUI key
-#define ST_LA(key) &st_1500_250 LALT key
-#define ST_LC(key) &st_1500_250 LCTRL key
-#define ST_LS(key) &st_1500_250 LSHIFT key
-#define ST_RA(key) &st_1500_250 RALT key
+#define ST_LG(key) &hst_1500_250 LGUI key
+#define ST_LA(key) &hst_1500_250 LALT key
+#define ST_LC(key) &hst_1500_250 LCTRL key
+#define ST_LS(key) &hst_1500_250 LSHIFT key
+#define ST_RA(key) &hst_1500_250 RALT key
 
 
 
