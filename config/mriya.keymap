@@ -13,16 +13,14 @@
 #define SYS 4
 
 #define SW_LNG &kp LG(SPACE)
-#define ST(key) &hsul1500 key key
-#define MOD_TAB(mod) &ht200 mod mod
+#define ST(key) &hst_1500_250 key key
 
-#define MOD_TAB2(mod) &ht200_2 mod mod
-#define MOD_TAB3(mod) &ht200_3 mod mod
+#define ST_LG(key) &st_1500_250 LGUI key
+#define ST_LA(key) &st_1500_250 LALT key
+#define ST_LC(key) &st_1500_250 LCTRL key
+#define ST_LS(key) &st_1500_250 LSHIFT key
+#define ST_RA(key) &st_1500_250 RALT key
 
-#define A_LGUI &ts1500 LGUI A
-#define S_LALT &ts1500 LALT S
-#define D_LCTRL &ts1500 LCTRL D
-#define F_LSHIFT &ts1500 LSHIFT F
 
 
 &lt {
@@ -46,7 +44,7 @@
     };
 
     macros {
-        m_rmrl: macro_release_mods_on_release_layer {
+        m_rm_rl: macro_release_mods_on_release_layer {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             wait-ms = <40>;
@@ -58,44 +56,6 @@
                 <&macro_tap &release_alt &release_ctrl &release_shft &release_gui>,
                 <&macro_param_1to1>,
                 <&macro_release &mo MACRO_PLACEHOLDER>;
-        };
-
-        m_smtab: macro_sticky_mod_tab {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_param_1to1>,
-                <&macro_press &sk1000 MACRO_PLACEHOLDER>,
-                <&macro_press &kp TAB>,
-                <&macro_param_1to1>,
-                <&macro_release &sk1000 MACRO_PLACEHOLDER>,
-                <&macro_param_1to1>,
-                <&macro_tap &sk1000 MACRO_PLACEHOLDER>,
-                <&macro_release &kp TAB>;
-        };
-
-        m_smtab2: macro_sticky_mod_tab2 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_param_1to1>,
-                <&macro_press &sk1000 MACRO_PLACEHOLDER>,
-                <&macro_tap &kp TAB>,
-                <&macro_param_1to1>,
-                <&macro_tap &sk1000 MACRO_PLACEHOLDER>,
-                <&macro_param_1to1>,
-                <&macro_release &sk1000 MACRO_PLACEHOLDER>;
-        };
-
-        m_smtab3: macro_sticky_mod_tab3 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_param_1to1>,
-                <&macro_press &sk1000 MACRO_PLACEHOLDER>,
-                <&macro_tap &kp TAB>,
-                <&macro_param_1to1>,
-                <&macro_tap &sk1000 MACRO_PLACEHOLDER>;
         };
 
         m_hlor: macro_hold_layer_on_release {
@@ -111,41 +71,16 @@
     };
 
     behaviors {
-        ltt: layer_tog_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
-            quick-tap-ms = <200>;
-            bindings = <&tog>, <&kp>;
-        };
-
-        ltrm: layer_tap_release_mods {
+        lt_rm_200: layer_tap_release_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <&m_rmrl>, <&kp>;
+            bindings = <&m_rm_rl>, <&kp>;
         };
 
-        sk500: sticky_key_500ms {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <500>;
-            ignore-modifiers;
-        };
-
-        sk1000: sticky_key_1000ms {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <1000>;
-            ignore-modifiers;
-        };
-
-        sk1500: sticky_key_1500ms {
+        sk_1500: sticky_key_1500 {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
             bindings = <&kp>;
@@ -154,15 +89,7 @@
             ignore-modifiers;
         };
 
-        sk2000: sticky_key_2000ms {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <2000>;
-            ignore-modifiers;
-        };
-
-        hsul1500: hold_sticky_undecided_linger_1500ms {
+        hs_1500_ul: hold_200_sticky_1500_undecided_linger {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -170,45 +97,17 @@
             quick-tap-ms = <200>;
             hold-while-undecided;
             hold-while-undecided-linger;
-            bindings = <&kp>, <&sk1500>;
+            bindings = <&kp>, <&sk_1500>;
         };
 
-        ts1500: tap_sticky_1500ms {
+        hst_1500_250: hold_250_sticky_1500_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <300>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <200>;
-            bindings = <&sk1500>, <&kp>;
-        };
-
-
-        ht200: hold_tap_200 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&m_smtab>;
-        };
-
-        ht200_2: hold_tap_200_2 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&m_smtab2>;
-        };
-
-        ht200_3: hold_tap_200_3 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&m_smtab3>;
+            bindings = <&sk_1500>, <&kp>;
         };
 
         press_alt: press_alt {
@@ -273,10 +172,10 @@
 
         default {
             bindings = <
-ST(LGUI)  &kp GRAVE  &kp Q   &kp W     &kp E       &kp R           &kp T        &kp Y        &kp U         &kp I                &kp O      &kp P          &kp LEFT_BRACKET  &mt RGUI RIGHT_BRACKET
-          ST(LCTRL)  A_LGUI  S_LALT    D_LCTRL     F_LSHIFT        &kp G        &kp H        &kp J         &kp K                &kp L      &kp SEMICOLON  &mt RCTRL SQT
-          ST(LALT)   &kp Z   &kp X     &kp C       &kp V           &kp B        &kp N        &kp M         &kp COMMA            &kp DOT    &kp SLASH      &mt LALT BSLH
-                             &tog NPD  ST(LSHIFT)  &ltrm FN SPACE  &lt 1 TAB    &lt 1 ENTER  &lt FN SPACE  &mt RSHFT RG(SPACE)  &tog NPD
+ST(LGUI)  &kp GRAVE  &kp Q     &kp W     &kp E       &kp R           &kp T          &kp Y          &kp U         &kp I                &kp O      &kp P             &kp LEFT_BRACKET  &mt RGUI RIGHT_BRACKET
+          ST(LCTRL)  ST_LG(A)  ST_LA(S)  ST_C(D)     ST_LS(F)        ST_RA(G)       ST_RA(H)       ST_LS(J)      &ST_LC(K)            ST_LA(L)   ST_LG(SEMICOLON)  &mt RCTRL SQT
+          ST(LALT)   &kp Z     &kp X     &kp C       &kp V           &kp B          &kp N          &kp M         &kp COMMA            &kp DOT    &kp SLASH         &mt LALT BSLH
+                               &tog NPD  ST(LSHIFT)  &ltrm FN SPACE  &lt NUM TAB    &lt NUM ENTER  &lt FN SPACE  &mt RSHFT RG(SPACE)  &tog NPD
             >;
         };
 
@@ -300,10 +199,10 @@ ST(LGUI)  &kp GRAVE  &kp Q   &kp W     &kp E       &kp R           &kp T        
 
         function {
             bindings = <
-&kp CAPS  &none  &none     &sk2000 LSHIFT  &press_shift    &release_shft  &m_hlor FN    &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-          &none  &kp LWIN  MOD_TAB(LALT)   &kp LCTRL       &kp LSHFT      &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-          &none  &none     MOD_TAB2(LALT)  MOD_TAB3(LALT)  &none          &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                           &trans          &trans          &trans         &trans        &trans     &trans     &trans     &trans
+&m_hlor FN  &none     &none     &none           &none           &none          &none         &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
+            &kp CAPS  &kp LWIN  &kp LALT        &kp LCTRL       &kp LSHFT      &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
+            &none     &none     &none           &none           &none          &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
+                                &trans          &trans          &trans         &trans        &trans     &trans     &trans     &trans
             >;
         };
 
