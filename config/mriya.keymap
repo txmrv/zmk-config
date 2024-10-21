@@ -152,7 +152,7 @@
         release_ralt: release_ralt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&none>, <&kt RLALT>;
+            bindings = <&none>, <&kt RALT>;
             mods = <(MOD_RALT)>;
         };
 
