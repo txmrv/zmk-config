@@ -6,21 +6,19 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+
 #define DEF 0
-#define NUM 1
-#define NPD 2
+#define NPD 1
+#define NUM 2
 #define FN  3
 #define SYS 4
 
-#define SW_LNG &kp LG(SPACE)
-#define ST(key) &hst_1500_250 key key
 
-#define ST_LG(key) &hst_1500_250 LGUI key
-#define ST_LA(key) &hst_1500_250 LALT key
-#define ST_LC(key) &hst_1500_250 LCTRL key
-#define ST_LS(key) &hst_1500_250 LSHIFT key
-#define ST_RA(key) &hst_1500_250 RALT key
-
+#define ST_LG(key) &hst_1000_225 LGUI key
+#define ST_LA(key) &hst_1000_225 LALT key
+#define ST_LC(key) &hst_1000_225 LCTRL key
+#define ST_LS(key) &hst_1000_225 LSHIFT key
+#define ST_RA(key) &hst_1000_225 RALT key
 
 
 &lt {
@@ -80,6 +78,15 @@
             bindings = <&m_rm_rl>, <&kp>;
         };
 
+        sk_1000: sticky_key_1000 {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1000>;
+            quick-release;
+            ignore-modifiers;
+        };
+
         sk_1500: sticky_key_1500 {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
@@ -89,25 +96,22 @@
             ignore-modifiers;
         };
 
-        hs_1500_ul: hold_200_sticky_1500_undecided_linger {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
-            bindings = <&kp>, <&sk_1500>;
-        };
-
-        hst_1500_250: hold_250_sticky_1500_tap {
+        hst_1000_225: hold_225_sticky_1000_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <250>;
-            quick-tap-ms = <250>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <225>;
             require-prior-idle-ms = <200>;
-            bindings = <&sk_1500>, <&kp>;
+            bindings = <&sk_1000>, <&kp>;
+        };
+
+        mm_rshft: reverse_shift {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <1>;
+            bindings = <&kp>, <&kp>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+            keep-mods = <(MOD_LCTL | MOD_RCTL | MOD_LALT | MOD_RALT | MOD_LGUI | MOD_RGUI)>;
         };
 
         press_alt: press_alt {
@@ -145,6 +149,13 @@
             mods = <(MOD_LALT)>;
         };
 
+        release_ralt: release_ralt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kt RLALT>;
+            mods = <(MOD_RALT)>;
+        };
+
         release_ctrl: release_ctrl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -172,37 +183,37 @@
 
         default {
             bindings = <
-ST(LGUI)  &kp GRAVE  &kp Q     &kp W     &kp E       &kp R         &kp T          &kp Y          &kp U         &kp I                &kp O      &kp P             &kp LEFT_BRACKET  &mt RGUI RIGHT_BRACKET
-          ST(LCTRL)  ST_LG(A)  ST_LA(S)  ST_LC(D)    ST_LS(F)      ST_RA(G)       ST_RA(H)       ST_LS(J)      ST_LC(K)             ST_LA(L)   ST_LG(SEMICOLON)  &mt RCTRL SQT
-          ST(LALT)   &kp Z     &kp X     &kp C       &kp V         &kp B          &kp N          &kp M         &kp COMMA            &kp DOT    &kp SLASH         &mt LALT BSLH
-                               &tog NPD  ST(LSHIFT)  &lt FN SPACE  &lt NUM TAB    &lt NUM ENTER  &lt FN SPACE  &mt RSHFT RG(SPACE)  &tog NPD
-            >;
-        };
-
-        numbers {
-            bindings = <
-&kp LGUI  &kp F1          &kp F2           &kp F3        &kp F4        &kp F5        &kp F6         &kp F7     &kp F8         &kp F9        &kp F10   &kp F11   &kp F12          &kp RGUI
-          &mt LCTRL PLUS  &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5         &kp N6     &kp N7         &kp N8        &kp N9    &kp N0    &mt RCTRL MINUS
-          &mt LALT EQUAL  &kp EXCLAMATION  &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR  &kp RPAR  &mt LALT UNDER
-                                           &trans        &trans        &trans        &trans         &trans     &trans         &trans        &trans
+&kp LCTRL  &kp GRAVE  &kp Q     &kp W       &kp E     &kp R         &kp T          &kp Y          &kp U         &kp I      &kp O      &kp P             &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+           &kp LGUI   ST_LG(A)  ST_LA(S)    ST_LC(D)  ST_LS(F)      ST_RA(G)       ST_RA(H)       ST_LS(J)      ST_LC(K)   ST_LA(L)   ST_LG(SEMICOLON)  &kp SQT
+           &kp LALT   &kp Z     &kp X       &kp C     &kp V         &kp B          &kp N          &kp M         &kp COMMA  &kp DOT    &kp SLASH         &kp BSLH
+                                &kp LSHIFT  &tog NPD  &lt FN SPACE  &lt NUM TAB    &lt NUM ENTER  &lt FN SPACE  &tog NPD   &none
             >;
         };
 
         numpad {
             bindings = <
-&kp LGUI  &none      &none   &none   &none   &none   &none     &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp ESCAPE     &mt RGUI KP_NUM
-          &kp LCTRL  &none   &none   &none   &none   &none     &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS   &mt RCTRL KP_ENTER
-          &kp LALT   &none   &none   &none   &none   &none     &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT     &mt LALT C_AL_CALC
-                             &trans  &trans  &trans  &trans    &trans           &trans           &trans           &trans
+&kp KP_NUM  &kp ECP        &kp KP_DIVIDE    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MULTIPLY    &kp KP_MULTIPLY  &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_DIVIDE    &kp ESC        &kp KP_NUM
+            &kp KP_ENTER   ST_LG(KP_MINUS)  ST_LA(KP_N4)  ST_LC(KP_N5)  ST_LS(KP_N6)  ST_RA(KP_PLUS)     ST_RA(KP_PLUS)   ST_LS(KP_N4)  ST_LC(KP_N5)  ST_LA(KP_N6)  ST_LG(KP_MINUS)  &kp KP_ENTER
+            &kp C_AL_CALC  &kp KP_N0        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT         &kp KP_N0        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT       &kp C_AL_CALC
+                                            &trans        &trans        &trans        &trans             &trans           &trans              &trans                &trans
+            >;
+        };
+
+        numbers {
+            bindings = <
+&m_hlor NUM  &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6       &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12                &m_hlor NUM
+             &kp EQUAL  ST_LG(N1)  ST_LA(N2)  ST_LC(N3)  ST_LS(N4)  ST_RA(N5)    ST_RA(N6)  ST_LS(N7)  ST_LC(N8)  ST_LA(N9)  ST_LG(N0)  &mm_rshft MINUS UNDER
+             &kp F13    &kp F14    &kp F15    &kp F16    &kp F17    &kp F18      &kp F19    &kp F20    &kp F21    &kp F22    &kp F23    &kp F24
+                                   &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans
             >;
         };
 
         function {
             bindings = <
-&m_hlor FN  &none     &none     &none           &none           &none          &none         &kp ESC    &kp HOME   &kp UP     &kp END    &kp INSERT  &none    &none
-            &kp CAPS  &kp LWIN  &kp LALT        &kp LCTRL       &kp LSHFT      &sk RALT      &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL     &kp TAB
-            &none     &none     &none           &none           &none          &none         &kp ENTER  &kp SPACE  &kp PG_UP  &kp PG_DN  &kp K_APP   &none
-                                &trans          &trans          &trans         &trans        &trans     &trans     &trans     &trans
+&m_hlor FN  &none     &kp INSERT   &kp HOME     &kp UP       &kp END       &kp TAB       &kp TAB      &kp HOME     &kp UP       &kp END       &kp INSERT  &none    &m_hlor FN
+            &kp ESC   ST_LG(BSPC)  ST_LA(LEFT)  ST_LC(DOWN)  ST_LS(RIGHT)  ST_RA(DEL)    ST_RA(BSPC)  ST_LS(LEFT)  ST_LC(DOWN)  ST_LA(RIGHT)  ST_LG(DEL)  &kp ESC
+            &none     &kp K_APP    &kp PG_UP    &kp PG_DN    &kp SPACE     &kp ENTER     &kp ENTER    &kp SPACE    &kp PG_UP    &kp PG_DN     &kp K_APP   &none
+                                   &trans       &trans       &trans        &trans        &trans       &trans       &trans       &trans
             >;
         };
 
