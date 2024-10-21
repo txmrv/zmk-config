@@ -108,7 +108,7 @@
 
         mm_rshft: reverse_shift {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
             keep-mods = <(MOD_LCTL | MOD_RCTL | MOD_LALT | MOD_RALT | MOD_LGUI | MOD_RGUI)>;
