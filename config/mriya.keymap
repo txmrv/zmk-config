@@ -192,7 +192,7 @@
 
         numpad {
             bindings = <
-&kp KP_NUM  &kp ECP        &kp KP_DIVIDE    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MULTIPLY    &kp KP_MULTIPLY  &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_DIVIDE    &kp ESC        &kp KP_NUM
+&kp KP_NUM  &kp ESC        &kp KP_DIVIDE    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MULTIPLY    &kp KP_MULTIPLY  &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_DIVIDE    &kp ESC        &kp KP_NUM
             &kp KP_ENTER   ST_LG(KP_MINUS)  ST_LA(KP_N4)  ST_LC(KP_N5)  ST_LS(KP_N6)  ST_RA(KP_PLUS)     ST_RA(KP_PLUS)   ST_LS(KP_N4)  ST_LC(KP_N5)  ST_LA(KP_N6)  ST_LG(KP_MINUS)  &kp KP_ENTER
             &kp C_AL_CALC  &kp KP_N0        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT         &kp KP_N0        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT       &kp C_AL_CALC
                                             &trans        &trans        &trans        &trans             &trans           &trans              &trans                &trans
