@@ -106,10 +106,10 @@
             bindings = <&sk_1000>, <&kp>;
         };
 
-        mm_rshft: reverse_shift {
+        mm_under_minus: reverse_under_minus {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp UNDER>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
             keep-mods = <(MOD_LCTL | MOD_RCTL | MOD_LALT | MOD_RALT | MOD_LGUI | MOD_RGUI)>;
         };
@@ -201,8 +201,8 @@
 
         numbers {
             bindings = <
-&m_hlor NUM  &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6       &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12                &m_hlor NUM
-             &kp EQUAL  ST_LG(N1)  ST_LA(N2)  ST_LC(N3)  ST_LS(N4)  ST_RA(N5)    ST_RA(N6)  ST_LS(N7)  ST_LC(N8)  ST_LA(N9)  ST_LG(N0)  &mm_rshft MINUS UNDER
+&m_hlor NUM  &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6       &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12          &m_hlor NUM
+             &kp EQUAL  ST_LG(N1)  ST_LA(N2)  ST_LC(N3)  ST_LS(N4)  ST_RA(N5)    ST_RA(N6)  ST_LS(N7)  ST_LC(N8)  ST_LA(N9)  ST_LG(N0)  &mm_under_minus
              &kp F13    &kp F14    &kp F15    &kp F16    &kp F17    &kp F18      &kp F19    &kp F20    &kp F21    &kp F22    &kp F23    &kp F24
                                    &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans
             >;
