@@ -21,6 +21,9 @@
 #define ST_RA(key) &hst_1000_225 RALT key
 
 
+#define UM &mm_under_minus
+
+
 &lt {
     quick-tap-ms = <200>;
     require-prior-idle-ms = <200>;
@@ -169,28 +172,28 @@
 
         numpad {
             bindings = <
-&kp KP_NUM  &kp ESC        &kp KP_DIVIDE    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MULTIPLY    &kp KP_MULTIPLY  &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_DIVIDE    &kp ESC        &kp KP_NUM
-            &kp KP_ENTER   ST_LG(KP_MINUS)  ST_LA(KP_N4)  ST_LC(KP_N5)  ST_LS(KP_N6)  ST_RA(KP_PLUS)     ST_RA(KP_PLUS)   ST_LS(KP_N4)  ST_LC(KP_N5)  ST_LA(KP_N6)  ST_LG(KP_MINUS)  &kp KP_ENTER
-            &kp C_AL_CALC  &kp KP_N0        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT         &kp KP_N0        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT       &kp C_AL_CALC
-                                            &trans        &trans        &trans        &trans             &trans           &trans              &trans                &trans
+&kp KP_NUM  &kp CLEAR2     &kp KP_MINUS    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_DIVIDE          &kp KP_DIVIDE        &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS    &kp CLEAR2     &kp KP_NUM
+            &kp KP_ENTER   ST_LG(KP_PLUS)  ST_LA(KP_N4)  ST_LC(KP_N5)  ST_LS(KP_N6)  ST_RA(KP_MULTIPILY)    ST_RA(KP_MULTIPILY)  ST_LS(KP_N4)  ST_LC(KP_N5)  ST_LA(KP_N6)  ST_LG(KP_PLUS)  &kp KP_ENTER
+            &kp C_AL_CALC  &kp KP_N0       &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT             &kp KP_DOT           &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_N0       &kp C_AL_CALC
+                                           &trans        &trans        &trans        &trans                 &trans               &trans        &trans        &trans
             >;
         };
 
         numbers {
             bindings = <
-&m_hlor NUM  &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6       &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12          &m_hlor NUM
-             &kp EQUAL  ST_LG(N1)  ST_LA(N2)  ST_LC(N3)  ST_LS(N4)  ST_RA(N5)    ST_RA(N6)  ST_LS(N7)  ST_LC(N8)  ST_LA(N9)  ST_LG(N0)  &mm_under_minus
-             &kp F13    &kp F14    &kp F15    &kp F16    &kp F17    &kp F18      &kp F19    &kp F20    &kp F21    &kp F22    &kp F23    &kp F24
-                                   &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans
+&m_hlor NUM  &kp F1      &kp F2     &mt F3 N7  &mt F4 N8   &mt F5 N9   &kp F6          &kp F1        &mt F2 N7  &mt F3 N8   &mt F4 N9   &kp F5      &kp F6      &m_hlor NUM
+             &kp KP_DOT  ST_LG(UM)  ST_LA(N4)  ST_LC(N5)   ST_LS(N6)   ST_RA(EQUAL)    ST_RA(EQUAL)  ST_LS(N4)  ST_LC(N5)   ST_LA(N6)   ST_LG(UM)   &kp KP_DOT
+             &kp F7      &mt F8 N0  &mt F9 N1  &mt F10 N2  &mt F11 N3  &kp F12         &kp F7        &mt F9 N1  &mt F10 N2  &mt F10 N3  &mt F11 N0  &kp F12
+                                    &trans     &trans      &trans      &trans          &trans        &trans     &trans      &trans
             >;
         };
 
         function {
             bindings = <
-&m_hlor FN  &none     &kp INSERT   &kp HOME     &kp UP       &kp END       &kp TAB       &kp TAB      &kp HOME     &kp UP       &kp END       &kp INSERT  &none    &m_hlor FN
-            &kp ESC   ST_LG(BSPC)  ST_LA(LEFT)  ST_LC(DOWN)  ST_LS(RIGHT)  ST_RA(DEL)    ST_RA(BSPC)  ST_LS(LEFT)  ST_LC(DOWN)  ST_LA(RIGHT)  ST_LG(DEL)  &kp ESC
-            &none     &kp K_APP    &kp PG_UP    &kp PG_DN    &kp SPACE     &kp ENTER     &kp ENTER    &kp SPACE    &kp PG_UP    &kp PG_DN     &kp K_APP   &none
-                                   &trans       &trans       &trans        &trans        &trans       &trans       &trans       &trans
+&m_hlor FN  &kp PSCRN        &kp INSERT   &kp HOME     &kp UP       &kp END       &kp ESC       &kp ESC      &kp HOME     &kp UP       &kp END       &kp INSERT  &kp PSCRN       &m_hlor FN
+            &kp K_APP        ST_LG(BSPC)  ST_LA(LEFT)  ST_LC(DOWN)  ST_LS(RIGHT)  ST_RA(DEL)    ST_RA(BSPC)  ST_LS(LEFT)  ST_LC(DOWN)  ST_LA(RIGHT)  ST_LG(DEL)  &kp K_APP
+            &kp PAUSE_BREAK  &kp TAB      &kp PG_UP    &kp PG_DN    &kp SPACE     &kp ENTER     &kp ENTER    &kp SPACE    &kp PG_UP    &kp PG_DN     &kp TAB     &kp PAUSE_BREAK
+                                          &trans       &trans       &trans        &trans        &trans       &trans       &trans       &trans
             >;
         };
 
