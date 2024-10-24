@@ -172,10 +172,10 @@
 
         numpad {
             bindings = <
-&kp KP_NUM  &kp CLEAR2     &kp KP_MINUS    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_DIVIDE          &kp KP_DIVIDE        &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS    &kp CLEAR2     &kp KP_NUM
-            &kp KP_ENTER   ST_LG(KP_PLUS)  ST_LA(KP_N4)  ST_LC(KP_N5)  ST_LS(KP_N6)  ST_RA(KP_MULTIPILY)    ST_RA(KP_MULTIPILY)  ST_LS(KP_N4)  ST_LC(KP_N5)  ST_LA(KP_N6)  ST_LG(KP_PLUS)  &kp KP_ENTER
-            &kp C_AL_CALC  &kp KP_N0       &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT             &kp KP_DOT           &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_N0       &kp C_AL_CALC
-                                           &trans        &trans        &trans        &trans                 &trans               &trans        &trans        &trans
+&kp KP_NUM  &kp CLEAR2     &kp KP_MINUS    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_DIVIDE         &kp KP_DIVIDE       &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS    &kp CLEAR2     &kp KP_NUM
+            &kp KP_ENTER   ST_LG(KP_PLUS)  ST_LA(KP_N4)  ST_LC(KP_N5)  ST_LS(KP_N6)  ST_RA(KP_MULTIPLY)    ST_RA(KP_MULTIPLY)  ST_LS(KP_N4)  ST_LC(KP_N5)  ST_LA(KP_N6)  ST_LG(KP_PLUS)  &kp KP_ENTER
+            &kp C_AL_CALC  &kp KP_N0       &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT            &kp KP_DOT          &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_N0       &kp C_AL_CALC
+                                           &trans        &trans        &trans        &trans                &trans              &trans        &trans        &trans
             >;
         };
 
